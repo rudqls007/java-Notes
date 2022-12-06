@@ -1,0 +1,18 @@
+@startuml
+participant User
+participant "Web Client" as C
+participant "LookSt Server" as S
+
+
+User -> C: GET / 
+activate C
+C -> S: static asset 요청(HTML/CSS 등)
+activate S
+S --> C: HTML/CSS 등 응답
+deactivate C
+C -> C: 로그인 페이지로 redirection
+C --> User: 로그인 입력 페이지
+deactivate C
+
+
+@enduml
